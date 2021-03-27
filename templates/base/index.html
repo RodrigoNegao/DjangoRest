@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% extends "base/base.html" %}
 
-{% load bootstrap4 %}
+{% comment %}{% load bootstrap4 %}{% endcomment %}
 
     {% block head_block %}
     <title>Cadastro</title>
@@ -9,7 +9,7 @@
     {% block body_block %}
             <body>
                 <div class="container">
-                    <h1 class="display-3">Cadastro</h1>
+                    {% comment %}<h1 class="display-3">Cadastro</h1>
                     <div><a role="button" href="{% url 'product:api-root' %}" class="btn btn-primary right">Link para a API</a></div>
                         <div class="jumbotron"> 
                                 {% if messages %}
@@ -17,8 +17,7 @@
                                         <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}role="alert">{{ message }}</div>
                                     {% endfor %}
                                 {% endif %}
-                                <h1>Cadastro de Produtos</h1>
-                                 {% comment %} #TODO {% endcomment %}
+                                <h1>Cadastro de Produtos</h1>                               
                                 <form action="" method="POST" class="form" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         {% bootstrap_form product_form layout='inline' %}
@@ -26,14 +25,14 @@
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                         {% endbuttons %}
                                 </form>
-                        </div>
+                        </div>{% endcomment %}
                             <div class="jumbotron">
                                         <form method="GET" action= {% url 'search' %} class="form-inline my-2 my-lg-0">
                                             <input class="form-control mr-sm-2" name="search_box" type="search" placeholder="Digite o nome do Produto" >
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                                         </form>
                                         <br>
-                                <h1> Lista de Produtos Cadastrados </h1>
+                                <h1> Lista de Pratos </h1>
                                 {% include 'base/product_list.html' %}
                                 {% include 'base/pagination.html' %}
                             </div>

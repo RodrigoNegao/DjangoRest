@@ -14,7 +14,7 @@ def index(request):
     'listings': paged_listings
   }  
 
-  return render(request, 'listings/listings.html', context)
+  return render(request, 'base/index.html', context)
 
 def listing(request, slug_text):
   #listing = get_object_or_404(Listing, pk=listing_id)

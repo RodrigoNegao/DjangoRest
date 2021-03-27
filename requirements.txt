@@ -23,6 +23,7 @@ Markdown==3.2.2
 mccabe==0.6.1
 paramiko==2.7.1
 pipreqs==0.4.10
+pillow==8.1.2
 psycopg2==2.8.5
 pycparser==2.20
 PyNaCl==1.4.0

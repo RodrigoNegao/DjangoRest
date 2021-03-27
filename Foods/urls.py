@@ -4,7 +4,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'foods', views.ProductViewSet)
+router.register(r'foods', views.FoodViewSet)
 # router.register(r'foods.views', views.CustomAuthToken)
 
 app_name = 'food'
