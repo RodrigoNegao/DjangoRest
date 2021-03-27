@@ -9,8 +9,8 @@
     {% block body_block %}
             <body>
                 <div class="container">
+                    <div><a role="button" href="{% url 'food:api-root' %}" class="btn btn-primary right">Link para a API</a></div>
                     {% comment %}<h1 class="display-3">Cadastro</h1>
-                    <div><a role="button" href="{% url 'product:api-root' %}" class="btn btn-primary right">Link para a API</a></div>
                         <div class="jumbotron"> 
                                 {% if messages %}
                                     {% for message in messages %}

@@ -24,7 +24,7 @@ def listing(request, slug_text):
     'listing': listing
   }
 
-  return render(request, 'listings/listing.html', context)
+  return render(request, 'base/listing.html', context)
 
 def search(request):  
   queryset_list = Food.objects.order_by('-list_date').filter(is_published=True)
@@ -66,7 +66,7 @@ def search(request):
     'values': request.GET
   }
 
-  return render(request, 'listings/search.html', context)
+  return render(request, 'base/search.html', context)
 
   
 def food_update_view(request, slug_text): #pk 
