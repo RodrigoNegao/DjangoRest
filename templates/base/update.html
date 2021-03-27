@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+
+{% load bootstrap4 %}
+
+    {% block head_block %}
+    <title>Editar</title>
+    {% endblock %}
+    {% block body_block %}
+<body>
+    <div class="container">
+        <div class="jumbotron"> 
+            {% if messages %}
+                {% for message in messages %}
+                    <div>{% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        <h1>Editar</h1>
+        <form action="" method="POST" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form product_update_form %}
+            {% buttons %}
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                {% for product in product_choice  %}
+                        <a role="button" href="{% url 'product-delete' pk=product.pk %}" class="btn btn-danger">Apagar</a> 
+                {% endfor %}
+            {% endbuttons %}
+            
+        </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

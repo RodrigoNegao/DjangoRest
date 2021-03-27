@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+
+{% load bootstrap4 %}
+
+    {% block head_block %}
+    <title>Apagar</title>
+    {% endblock %}
+    {% block body_block %}
+<body>
+    <div class="container">
+        <div class="jumbotron"> 
+            {% if messages %}
+                {% for message in messages %}
+                    <div>{% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+                    <h1>Apagar o Produto</h1>
+                    <!-- Create a Form -->
+                    <form method="POST"> 
+                        <!-- Security token by Django -->
+                        {% csrf_token %}
+                        {% for product in product_choice %}
+                            <p>Voce quer apagar esse item  ? Nome do Produto : {{ product.productName }}</p>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-danger">Sim</button> 
+                        <a role="button" href="{% url 'index' %}" class="btn btn-primary">Cancelar</a>
+                    </form> 
+        </div>
+    </div>
+</body>
+{% endblock %}

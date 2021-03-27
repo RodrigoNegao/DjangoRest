@@ -1,0 +1,21 @@
+<div class="card-deck col-md-12">
+    {% for product in pages %}
+        <div class="card col-md-3">
+            <img src="{{ product.pictureProduct.url }}" class="card-img-top"  alt="...">
+            <div class="card-body">
+                    <h5 class="card-title">{{ product.productName }}</h5>
+                    <p class="card-text">R$ {{ product.price}}</p>
+                    <p class="card-text">{{ product.description }}</p>
+                {% if product.categories == None or product.categories == '' %}
+                    <p class="card-text">Categoria: </p>
+                {% else %}
+                    <p class="card-text">Categoria: {{ product.categories }}</p>
+                {% endif %}
+                <a href="{% url 'product-update' pk=product.pk %}" class="btn btn-success">Editar</a>
+                <a role="button" href="{% url 'product-delete' pk=product.pk %}" class="btn btn-danger">Apagar</a>
+            </div>
+        </div>
+    {% empty %}
+        <div class="center"><h3>Não foi achado nenhum produto</h3></div>
+    {% endfor %}
+</div>

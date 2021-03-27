@@ -1,0 +1,22 @@
+.card-img-top {    
+    width: 100% !important; 
+    max-width: 130px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 50% !important;
+}
+
+.pagination{
+    margin: auto;
+    width: 50%;
+}
+
+.center {
+    padding: 70px 0;
+    text-align: center;
+  }
+
+.right {
+    float: right;
+}
