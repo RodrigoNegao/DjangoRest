@@ -21,8 +21,8 @@
             {% bootstrap_form product_update_form %}
             {% buttons %}
                     <button type="submit" class="btn btn-success">Salvar</button>
-                {% for product in product_choice  %}
-                        <a role="button" href="{% url 'product-delete' pk=product.pk %}" class="btn btn-danger">Apagar</a> 
+                {% for food in food_choice  %}
+                        <a role="button" href="{% url 'food-delete' food.slug %}" class="btn btn-danger">Apagar</a> 
                 {% endfor %}
             {% endbuttons %}
             

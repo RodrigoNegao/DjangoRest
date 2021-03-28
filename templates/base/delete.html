@@ -21,7 +21,7 @@
                         <!-- Security token by Django -->
                         {% csrf_token %}
                         {% for product in product_choice %}
-                            <p>Voce quer apagar esse item  ? Nome do Produto : {{ product.productName }}</p>
+                            <p>Voce quer apagar esse item  ? Nome do Produto : {{ food.foodName }}</p>
                         {% endfor %}
                         <button type="submit" class="btn btn-danger">Sim</button> 
                         <a role="button" href="{% url 'index' %}" class="btn btn-primary">Cancelar</a>
