@@ -6,11 +6,6 @@
                     <h5 class="card-title">{{ product.productName }}</h5>
                     <p class="card-text">R$ {{ product.price}}</p>
                     <p class="card-text">{{ product.description }}</p>
-                {% if product.categories == None or product.categories == '' %}
-                    <p class="card-text">Categoria: </p>
-                {% else %}
-                    <p class="card-text">Categoria: {{ product.categories }}</p>
-                {% endif %}
                 <a href="{% url 'product-update' pk=product.pk %}" class="btn btn-success">Editar</a>
                 <a role="button" href="{% url 'product-delete' pk=product.pk %}" class="btn btn-danger">Apagar</a>
             </div>
