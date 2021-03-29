@@ -89,6 +89,9 @@ python manage.py runserver 0.0.0.0:8000
 ```
 - digite no Browser do seu celular o ip encontrado - 'http://ip-address:8000'
 
+### Testes Unitario , Regressão,Integração e Funcional
+- Foram feitos manualmente.
+
 - **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
 
 ## Implementar aplicativo em um Web Service
