@@ -9,13 +9,13 @@
     {% block body_block %}
 <body>
     <div class="container">
-        <div class="jumbotron"> 
+        <h1>Editar</h1>
+        <div class="jumbotron">
             {% if messages %}
                 {% for message in messages %}
                     <div>{% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}role="alert">{{ message }}</div>
                 {% endfor %}
-            {% endif %}
-        <h1>Editar</h1>
+            {% endif %}        
         <form action="" method="POST" class="form" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form food_update_form %}

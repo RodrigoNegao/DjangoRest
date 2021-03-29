@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-
+{% include 'base/_navbar.html' %}
 {% block body_block %}
                   <!-- Anythink outside of this will be inherited if you extend! -->
 {% endblock %}

@@ -25,21 +25,20 @@ def add_food(request):
   if request.method == 'POST':
 
         food_form = FoodForm(data=request.POST,files=request.FILES,)
-        # Check to see the form is valid
+        # Check se est valido
         if food_form.is_valid(): 
             # Sava o produto
             food_form.save()
-            # Registration Successful! messages.success
+            # Cadastro ok
             messages.success(request, 'Produto Salvo com Sucesso')
-            #Go to Index
+            #Volta para pagina de cadastro
             return HttpResponseRedirect(reverse('add-food'))
         else:
-            # One of the forms was invalid if this else gets called.
+            # Informa o erro
             print(food_form.errors)
 
   else:
-        # Was not an HTTP post so we just render the forms .
-            food_form = FoodForm()
+        food_form = FoodForm()
 
   listings = Food.objects.order_by('-list_date')
 
@@ -64,18 +63,12 @@ def search(request):
                         | Q(employer__icontains=keywords)  )
       queryset_list = Food.objects.filter(foodFilter).order_by('-list_date').filter(is_published=True)
 
-  # Price
-  # if 'price' in request.GET:
-  #   price = request.GET['price']
-  #   if price != "":
-  #     queryset_list = queryset_list.filter(price__lte=price) 
 
   paginator = Paginator(queryset_list, 6)
   page = request.GET.get('page')
   paged_listings = paginator.get_page(page)
   
   context = {
-    # 'price_choices': price_choices,
     'pages': paged_listings,
     'values': request.GET
   }
@@ -83,7 +76,7 @@ def search(request):
   return render(request, 'base/search.html', context)
 
   
-def food_update_view(request, slug_text): #pk 
+def food_update_view(request, slug_text):
 
     food_list = Food.objects.all()
 
@@ -96,9 +89,9 @@ def food_update_view(request, slug_text): #pk
         food_update_form = FoodForm(data=request.POST,files=request.FILES,instance=food)
         if food_update_form.is_valid():
             food_update_form.save()
-            messages.success(request, 'Produto Modificado com Sucesso')
+            messages.success(request, 'Prato Modificado com Sucesso')
             #Go to Index
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('add-food'))
         else:
             print(food_update_form.errors)
 
@@ -114,21 +107,17 @@ def food_update_view(request, slug_text): #pk
 
 
 def food_delete_view(request,slug_text):
-    # dictionary for initial data with  
-    # field names as keys
     food_choice = Food.objects.filter(slug=slug_text)
 
     context ={'food_choice':food_choice} 
   
-    # fetch the object related to passed id 
     obj = get_object_or_404(Food, slug=slug_text)   
   
     if request.method =="POST": 
-        # delete object 
         obj.delete() 
-        # Registration Successful! messages.success
+
         messages.success(request, 'Produto Apagado com Sucesso')
-        #Go to Index
-        return HttpResponseRedirect(reverse('index')) 
+
+        return HttpResponseRedirect(reverse('add-food')) 
   
     return render(request, "base/delete.html", context) 

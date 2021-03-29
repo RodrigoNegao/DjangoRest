@@ -8,10 +8,8 @@
     {% endblock %}
     {% block body_block %}
             <body>
-                <div class="container">
-                    <div><a role="button" href="{% url 'index' %}" class="btn btn-primary right">Index</a></div>
-                    <div><a role="button" href="{% url 'food:api-root' %}" class="btn btn-primary right">Link para a API</a></div>
-                    <h1 class="display-3">Cadastro</h1>
+                <div class="container"> 
+                    <h1 class="display-3">Cadastro de Pratos</h1>
                         <div class="jumbotron"> 
                                 {% if messages %}
                                     {% for message in messages %}
@@ -34,8 +32,8 @@
                                         </form>
                                         <br>
                                 <h1> Lista de Pratos </h1>
-                                {% include 'base/product_list_ed.html' %}
-                                {% include 'base/pagination.html' %}
+                                {% include 'base/_product_list_ed.html' %}
+                                {% include 'base/_pagination.html' %}
                             </div>
                 </div>
                     
