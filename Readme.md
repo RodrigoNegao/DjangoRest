@@ -1,10 +1,5 @@
 ### **Projeto de uso de Modelo Django Restaurante Simples (Docker  REST API)** :snake: :whale:
 
-### Login
-- Username: hero
-- Email address: hero@hero.com
-- Password: 123456
-
 ### Para uma boa instalação e testes siga a ordem abaixo.
 
 ### Ambiente Django no Windows
@@ -30,12 +25,23 @@ conda create -name DjangoRest
 ```bash
  pip install -r requirements.txt
  ```
-### Config Django
+### Config DB
 ```bash
+python manage.py migrate
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
+### Caso use db.sqlite3 disponivel 
+Login
+- Username: admin
+- Password: admin
+
+### Criar novo Super Usuario
+```bash
+python manage.py createsuperuser
+```
+
 ### Ambiente Docker para Django :whale:
 ### Instalação do DockerTOOLS (Docker para Windows Home)
 - 1º [Tutorial do DockerTOOLS](https://docs.docker.com/toolbox/toolbox_install_windows/)
@@ -50,7 +56,7 @@ python manage.py createsuperuser
     cd /diretorio
     ```
     - Vai Construir um Docker a partir do Arquivo **DockerFile**:
-             (este comando serve para atualizar tbem)
+             (este comando serve para atualizar também)
     ```bash
     docker-compose build
     ```
@@ -67,13 +73,7 @@ python manage.py createsuperuser
 
 - Vai abrir o exemplo no lado , mas tera a opção de abrir no Browser Padrão.
 
-- **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
-## Implementar aplicativo baseado em Django :pushpin:
-- no Amazon Lightsail
-- [Tutorial](https://aws.amazon.com/pt/getting-started/hands-on/deploy-python-application/)
-
-
-## :calling: Teste no Celular - Windows/Docker
+## :calling: Teste no Celular - Windows
 - Abra cmd 
 - Digite 
 ```bash
@@ -88,4 +88,10 @@ ipconfig
 python manage.py runserver 0.0.0.0:8000
 ```
 - digite no Browser do seu celular o ip encontrado - 'http://ip-address:8000'
+
+- **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
+
+## Implementar aplicativo em um Web Service
+- no Ubuntu 18.04
+- [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt)
 

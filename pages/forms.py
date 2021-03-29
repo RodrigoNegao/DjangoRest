@@ -3,8 +3,8 @@ from Foods.models import Food
 
 
 
-class FoodsForm(forms.ModelForm):
+class FoodForm(forms.ModelForm):
 
     class Meta:
         model = Food
-        fields = ['foodName','price','pictureFood','description','is_published'] #'__all__'
+        fields = ['employer','foodName','price','pictureFood','description','is_published'] #'__all__'

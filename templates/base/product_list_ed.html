@@ -7,6 +7,8 @@
                     <p class="card-text">R$ {{ food.price}}</p>
                     <p class="card-text">{{ food.description }}</p>
                     <p class="card-text">Chefe: {{ food.employer }}</p>
+                <a href="{% url 'food-update' food.slug %}" class="btn btn-success">Editar</a>
+                <a role="button" href="{% url 'food-delete' food.slug %}" class="btn btn-danger">Apagar</a>
             </div>
         </div>
     {% empty %}

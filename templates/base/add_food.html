@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% extends "base/base.html" %}
 
-{% comment %}{% load bootstrap4 %}{% endcomment %}
+{% load bootstrap4 %}
 
     {% block head_block %}
     <title>Cadastro</title>
@@ -9,24 +9,24 @@
     {% block body_block %}
             <body>
                 <div class="container">
-                    <div><a role="button" href="{% url 'add-food' %}" class="btn btn-primary right">Cadastro de Prato</a></div>
+                    <div><a role="button" href="{% url 'index' %}" class="btn btn-primary right">Index</a></div>
                     <div><a role="button" href="{% url 'food:api-root' %}" class="btn btn-primary right">Link para a API</a></div>
-                    {% comment %}<h1 class="display-3">Cadastro</h1>
+                    <h1 class="display-3">Cadastro</h1>
                         <div class="jumbotron"> 
                                 {% if messages %}
                                     {% for message in messages %}
                                         <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}role="alert">{{ message }}</div>
                                     {% endfor %}
                                 {% endif %}
-                                <h1>Cadastro de Produtos</h1>                               
+                                <h1>Cadastro de Pratos</h1>
                                 <form action="" method="POST" class="form" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                        {% bootstrap_form product_form layout='inline' %}
+                                        {% bootstrap_form food_form layout='inline' %}
                                         {% buttons %}
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                         {% endbuttons %}
                                 </form>
-                        </div>{% endcomment %}
+                        </div>
                             <div class="jumbotron">
                                         <form method="GET" action= {% url 'search' %} class="form-inline my-2 my-lg-0">
                                             <input class="form-control mr-sm-2" name="keywords" type="search" placeholder="Digite o nome do Produto" >
@@ -34,7 +34,7 @@
                                         </form>
                                         <br>
                                 <h1> Lista de Pratos </h1>
-                                {% include 'base/product_list.html' %}
+                                {% include 'base/product_list_ed.html' %}
                                 {% include 'base/pagination.html' %}
                             </div>
                 </div>

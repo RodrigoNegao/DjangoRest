@@ -16,38 +16,59 @@ def index(request):
   paged_listings = paginator.get_page(page)
 
   context = {
-    'listings': paged_listings
+    'pages': paged_listings
   }  
 
   return render(request, 'base/index.html', context)
 
-def listing(request, slug_text):
-  #listing = get_object_or_404(Listing, pk=listing_id)
-  listing = get_object_or_404(Food, slug=slug_text)
+def add_food(request):
+  if request.method == 'POST':
 
-  context = {
-    'listing': listing
-  }
+        food_form = FoodForm(data=request.POST,files=request.FILES,)
+        # Check to see the form is valid
+        if food_form.is_valid(): 
+            # Sava o produto
+            food_form.save()
+            # Registration Successful! messages.success
+            messages.success(request, 'Produto Salvo com Sucesso')
+            #Go to Index
+            return HttpResponseRedirect(reverse('add-food'))
+        else:
+            # One of the forms was invalid if this else gets called.
+            print(food_form.errors)
 
-  return render(request, 'base/listing.html', context)
+  else:
+        # Was not an HTTP post so we just render the forms .
+            food_form = FoodForm()
 
-def search(request):  
-  queryset_list = Food.objects.order_by('-list_date').filter(is_published=True)
+  listings = Food.objects.order_by('-list_date')
+
+  paginator = Paginator(listings, 6)
+  page = request.GET.get('page')
+  paged_listings = paginator.get_page(page)
+
+  context = { 'food_form': food_form , 'pages': paged_listings}
+
+  return render(request, 'base/add_food.html', context)
+
+def search(request):
 
   # Keywords
   if 'keywords' in request.GET:
     keywords = request.GET['keywords']
     if keywords:
-      #   # | == OR
-      # queryset_list = (Q(foodName__icontains=keywords) 
-      #                   | Q(description__icontains=keywords) | Q(price__icontains=keywords)  )
-      queryset_list = queryset_list.filter(description__icontains=keywords)
+      # | == OR
+      foodFilter = (Q(foodName__icontains=keywords) 
+                        | Q(description__icontains=keywords) 
+                        | Q(price__icontains=keywords) 
+                        | Q(employer__icontains=keywords)  )
+      queryset_list = Food.objects.filter(foodFilter).order_by('-list_date').filter(is_published=True)
 
   # Price
-  if 'price' in request.GET:
-    price = request.GET['price']
-    if price != "":
-      queryset_list = queryset_list.filter(price__lte=price) 
+  # if 'price' in request.GET:
+  #   price = request.GET['price']
+  #   if price != "":
+  #     queryset_list = queryset_list.filter(price__lte=price) 
 
   paginator = Paginator(queryset_list, 6)
   page = request.GET.get('page')
@@ -55,7 +76,7 @@ def search(request):
   
   context = {
     # 'price_choices': price_choices,
-    'listings': paged_listings,
+    'pages': paged_listings,
     'values': request.GET
   }
 

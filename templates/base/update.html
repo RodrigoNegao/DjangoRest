@@ -18,7 +18,7 @@
         <h1>Editar</h1>
         <form action="" method="POST" class="form" enctype="multipart/form-data">
             {% csrf_token %}
-            {% bootstrap_form product_update_form %}
+            {% bootstrap_form food_update_form %}
             {% buttons %}
                     <button type="submit" class="btn btn-success">Salvar</button>
                 {% for food in food_choice  %}
