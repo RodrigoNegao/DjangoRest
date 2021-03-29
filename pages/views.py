@@ -62,6 +62,8 @@ def search(request):
                         | Q(price__icontains=keywords) 
                         | Q(employer__icontains=keywords)  )
       queryset_list = Food.objects.filter(foodFilter).order_by('-list_date').filter(is_published=True)
+    else:
+      queryset_list = Food.objects.order_by('-list_date').filter(is_published=True)
 
 
   paginator = Paginator(queryset_list, 6)

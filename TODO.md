@@ -5,7 +5,7 @@ Lista de pratos
 - Essencial
  criar uma nav
  index - lista de pratos
- butao cadastro de pratos e API
+ link cadastro de pratos e API
  clica no item da lista
 
  - Desejavel

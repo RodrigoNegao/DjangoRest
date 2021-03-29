@@ -10,11 +10,8 @@
             <body>
                 <div class="container">
                             <div class="jumbotron">
-                                        <form method="GET" action= {% url 'search' %} class="form-inline my-2 my-lg-0">
-                                            <input class="form-control mr-sm-2" name="keywords" type="search" placeholder="Digite o nome do Produto" >
-                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                                        </form>
-                                        <br>
+                                {% include 'base/_searchbox.html' %}
+                                <br>
                                 <h1> Lista de Pratos </h1>
                                 {% include 'base/_product_list.html' %}
                                 {% include 'base/_pagination.html' %}
