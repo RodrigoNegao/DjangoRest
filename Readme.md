@@ -95,6 +95,5 @@ python manage.py runserver 0.0.0.0:8000
 - **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
 
 ## Implementar aplicativo em um Web Service
-- no Ubuntu 18.04
-- [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt)
+- no Ubuntu 18.04 [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt)
 
