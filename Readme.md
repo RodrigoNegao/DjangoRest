@@ -73,6 +73,8 @@ python manage.py createsuperuser
 
 - Vai abrir o exemplo no lado , mas tera a opção de abrir no Browser Padrão.
 
+- **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
+
 ## :calling: Teste no Celular - Windows
 - Abra cmd 
 - Digite 
@@ -91,8 +93,6 @@ python manage.py runserver 0.0.0.0:8000
 
 ### Testes Unitario , Regressão,Integração e Funcional
 - Foram feitos manualmente.
-
-- **Modelo do Tutorial [Docker Compose para Django](https://docs.docker.com/compose/django/)**
 
 ## Implementar aplicativo em um Web Service
 - no Ubuntu 18.04 [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt)
