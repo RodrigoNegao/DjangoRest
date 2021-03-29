@@ -93,6 +93,13 @@ python manage.py runserver 0.0.0.0:8000
 
 ### Testes Unitario , Regressão,Integração e Funcional
 - Foram feitos manualmente.
+- Usado Método get_absolute_url()
+- Mozila Developer [Tutorial](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/Testing)
+
+> Similarmente, você deve verificar se os métodos personalizados  get_absolute_url() e > __str__() se comportam como desejado, porque els são sua lógica de código/negócios.  > No caso de get_absolute_url() você pode confiar que o método reverse() de Django, 
+> foi  implementado corretamente, portanto, o que você esta testando é se a view
+> associada foi realmente definida.
+
 
 ## Implementar aplicativo em um Web Service
 - no Ubuntu 18.04 [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt)
