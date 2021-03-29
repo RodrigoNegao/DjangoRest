@@ -1,4 +1,4 @@
-### **Projeto de uso de Modelo Django Restaurante Simples (Docker  REST API)** :snake: :whale:
+### **Projeto de uso de Modelo Django Restaurante Simples (Docker REST API)** :snake: :whale:
 
 ### Para uma boa instalação e testes siga a ordem abaixo.
 
